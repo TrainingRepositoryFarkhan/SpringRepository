@@ -2,7 +2,6 @@ package org.example;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.Bean;
 
 @Data
 @NoArgsConstructor
@@ -17,14 +16,14 @@ public class Contact {
     }
 
     public void AddContact(String name, String number, String email){
-        if (name.matches("[a-zA-Z]+") && number.matches("[0-9]{2}") && email.endsWith(".ru")) {
+        if (name.matches("[a-zA-Z]+") && number.matches("[0-9]{2}") && email.endsWith("@mail.ru")) {
             Main.contactsList.add(new Contact(name, number, email));
             System.out.println("Contact is added");
         } else {
             System.out.println("Something wrong");
         }
     }
-    public void RemoveContact(String email){
+    public void RemoveContactFromList(String email){
         for(int i = 0; i < Main.contactsList.size(); i++){
             if(Main.contactsList.get(i).getEmail().equals(email)){
                 Main.contactsList.remove(Main.contactsList.get(i));
@@ -36,7 +35,7 @@ public class Contact {
             }
         }
     }
-    public void ShowAllContacts(){
+    public void ShowAllContactsInList(){
         if(Main.contactsList.isEmpty()){
             System.out.println("There is no contacts yet");
         }

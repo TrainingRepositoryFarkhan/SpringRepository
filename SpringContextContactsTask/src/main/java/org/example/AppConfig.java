@@ -7,4 +7,8 @@ public class AppConfig {
     public Contact contact(){
         return new Contact();
     }
+    @Bean
+    public NumbersInFile numbersInFile(){
+        return new NumbersInFile();
+    }
 }
